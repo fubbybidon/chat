@@ -63,7 +63,7 @@ function Chat() {
     socket.current = new WebSocket(process.env.NEXT_PUBLIC_WS_API);
     socket.current.onmessage = handleResponse;
   }, []);
-
+/* ____________________________________________________HANDLE NEW MESSAGE_________________________________________________________________*/
   const handleNewUserMessage = (newMessage) => {
     counter.current++;
     const question: Question = {
@@ -74,17 +74,19 @@ function Chat() {
     socket.current.send(JSON.stringify(question));
   };
 
-  const handleCallOperator = () => {
+  const handleCallOperator = (id: number) => {
     const question: Fallback = {
-      id: counter.current,
+      id: id,
     };
     socket.current.send(JSON.stringify(question));
   };
+/* ____________________________________________________HANDLE RESPONSE_________________________________________________________________*/
 
   const handleResponse = (response: WSResponse) => {
     console.log(response);
     // TODO: Заменить data на response.data
     const data: WSResponse["data"] = {
+      id: 1,
       text:
         "Для того чтобы подключить домашний интернет, необходимо подключить интернет",
       links: [
@@ -121,12 +123,13 @@ function Chat() {
         target: "_blank",
       });
     }
+    // render question
     renderCustomComponent(IsUsefull, {
       onAgree: () => {
         addResponseMessage("Здорово, обращайтесь еще!");
       },
       onDisagree: () => {
-        handleCallOperator();
+        handleCallOperator(data.id);
         addResponseMessage("Соединяю с оператором.");
       },
     });
