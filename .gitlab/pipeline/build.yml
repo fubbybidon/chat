@@ -5,7 +5,7 @@ docker:
     DOCKER_BUILDKIT: "1"
   script:
     - docker build -f .docker/Dockerfile .
-      --tag ${DOCKER_REGISTRY_REPO}:${CI_COMMIT_REF_SLUG}
+      --tag ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_SLUG}
       --build-arg NODE_IMAGE=${NODE_IMAGE}
       --build-arg NGINX_IMAGE=${NGINX_IMAGE}
-    - docker push ${DOCKER_REGISTRY_REPO}:${CI_COMMIT_REF_SLUG}
+    - docker push ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_SLUG}

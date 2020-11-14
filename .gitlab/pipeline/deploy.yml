@@ -1,4 +1,4 @@
 deploy:
   stage: deploy
   script:
-    - echo "deploy"
+    - echo "123"
