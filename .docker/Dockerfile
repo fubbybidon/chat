@@ -8,6 +8,7 @@ WORKDIR /usr/src/chat
 COPY package.json package-lock.json ./
 RUN npm i
 
+ARG NEXT_PUBLIC_WS_API=""
 COPY . .
 RUN npm run build && npm run export
 

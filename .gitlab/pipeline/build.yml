@@ -8,4 +8,5 @@ docker:
       --tag ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_SLUG}
       --build-arg NODE_IMAGE=${NODE_IMAGE}
       --build-arg NGINX_IMAGE=${NGINX_IMAGE}
+      --build-arg NEXT_PUBLIC_WS_API=${NEXT_PUBLIC_WS_API}
     - docker push ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_SLUG}
