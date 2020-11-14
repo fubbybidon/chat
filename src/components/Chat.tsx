@@ -85,28 +85,29 @@ function Chat() {
   const handleResponse = (response: WSResponse) => {
     console.log(response);
     // TODO: Заменить data на response.data
-    const data: WSResponse["data"] = {
-      id: 1,
-      text:
-        "Для того чтобы подключить домашний интернет, необходимо подключить интернет",
-      links: [
-        {
-          title: "Чудесная ссылка от всех бед",
-          link:
-            "https://moscow.rt.ru/support/internet/contract/state-of-account",
-        },
-        {
-          title: "Чудесная ссылка от всех бед",
-          link:
-            "https://moscow.rt.ru/support/internet/contract/state-of-account",
-        },
-        {
-          title: "Чудесная ссылка от всех бед",
-          link:
-            "https://moscow.rt.ru/support/internet/contract/state-of-account",
-        },
-      ],
-    };
+    // const data: WSResponse["data"] = {
+    //   id: 1,
+    //   text:
+    //     "Для того чтобы подключить домашний интернет, необходимо подключить интернет",
+    //   links: [
+    //     {
+    //       title: "Чудесная ссылка от всех бед",
+    //       link:
+    //         "https://moscow.rt.ru/support/internet/contract/state-of-account",
+    //     },
+    //     {
+    //       title: "Чудесная ссылка от всех бед",
+    //       link:
+    //         "https://moscow.rt.ru/support/internet/contract/state-of-account",
+    //     },
+    //     {
+    //       title: "Чудесная ссылка от всех бед",
+    //       link:
+    //         "https://moscow.rt.ru/support/internet/contract/state-of-account",
+    //     },
+    //   ],
+    // };
+    const data = response.data;
     // handle error
     if (data.code) {
       addResponseMessage(
