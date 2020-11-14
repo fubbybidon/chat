@@ -9,7 +9,8 @@ variables:
   DOCKER_IMAGE: docker:stable-git
   NODE_IMAGE: node:14
   NGINX_IMAGE: nginx:1.17-alpine
-  NEXT_PUBLIC_WS_API: ws://rt.messa.dev/api/
+  NEXT_PUBLIC_WS_API: wss://rt.messa.dev/api/
+  DOCKER_SERVICE: rt_web
 
 include:
   - local: .gitlab/pipeline/build.yml

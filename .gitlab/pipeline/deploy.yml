@@ -1,4 +1,6 @@
 deploy:
   stage: deploy
   script:
-    - echo "123"
+    - docker service update ${DOCKER_SERVICE}
+      --image ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_SLUG}
+      --force
