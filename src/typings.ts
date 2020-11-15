@@ -36,5 +36,5 @@ export interface Error {
 
 
 export interface WSResponse {
-    data: Answer
+    data: string;
 }

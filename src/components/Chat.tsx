@@ -107,7 +107,7 @@ function Chat() {
     //     },
     //   ],
     // };
-    const data = response.data;
+    const data = JSON.parse(response.data);
     // handle error
     if (data.code) {
       addResponseMessage(
